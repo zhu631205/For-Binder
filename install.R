@@ -1,8 +1,3 @@
-FROM rocker/r-ver:4.1.0
-
-# Install R packages
-RUN R -e "install.packages(c('devtools', 'BiocManager'))"
-RUN R -e "BiocManager::install('ArchR')"
 
 # Install RStudio
 RUN apt-get update && apt-get install -y \
