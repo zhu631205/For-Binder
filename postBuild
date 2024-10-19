@@ -7,5 +7,9 @@ R -e "install.packages(c('shiny', 'ggplot2', 'dplyr', 'tidyverse'), repos='http:
 # Install devtools if it's not already installed
 Rscript -e "if (!requireNamespace('devtools', quietly = TRUE)) install.packages('devtools')"
 
-# Install Seurat v5 from GitHub using devtools
-Rscript -e "devtools::install_github('satijalab/seurat', ref = 'v5.0.0')"
+# Install remotes if it's not already installed
+Rscript -e "if (!requireNamespace('remotes', quietly = TRUE)) install.packages('remotes')"
+
+# Try to install Seurat v5 using devtools, fallback to remotes if devtools is not working
+Rscript -e "tryCatch(devtools::install_github('satijalab/seurat', ref = 'v5.0.0'), \
+error = function(e) remotes::install_github('satijalab/seurat', ref = 'v5.0.0'))"
