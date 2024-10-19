@@ -1,0 +1,6 @@
+Seurat==5.0.0
+dplyr
+ggplot2
+patchwork
+Matrix
+cowplot
