@@ -11,11 +11,14 @@ dependencies:
   - r-seurat
   
   # Python dependencies
-  - notebook
-  - jupyter
-  - traitlets>=5.0.0
+  - python=3.11
   - ipykernel
-
+  - jupyter
+  - traitlets=5.9.0
+  - pip  # Add pip here
+  
   # If you need pip-installed dependencies
   - pip:
-      - some-python-package
+      - numpy
+      - pandas
+      - seaborn
