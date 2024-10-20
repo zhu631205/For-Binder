@@ -2,6 +2,9 @@
 
 echo "Starting Binder build..."
 
+# Update conda to the latest version
+conda update -n base -c conda-forge conda -y
+
 # Update the package manager and install apt-utils
 apt-get update && apt-get install -y apt-utils
 
@@ -10,9 +13,6 @@ apt-get install -y r-base r-base-dev
 
 # Install R packages
 R -e "install.packages(c('shiny', 'ggplot2', 'dplyr', 'tidyverse', 'Seurat'), repos='http://cran.rstudio.com/')"
-
-# Install conda (updating it to the latest version)
-conda update -n base -c defaults conda -y
 
 # Install Python dependencies
 conda install -y python=3.11 ipykernel jupyter traitlets=5.9.0
@@ -23,5 +23,4 @@ if [ -f requirements.txt ]; then
 fi
 
 echo "Finished postBuild."
-
 
