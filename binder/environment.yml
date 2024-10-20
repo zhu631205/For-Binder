@@ -9,7 +9,6 @@ dependencies:
   - r-essentials
   - r-ggplot2
   - r-seurat
-  - r-studio  # Optional: if you can specify a version
   
   # Python dependencies
   - python=3.11
