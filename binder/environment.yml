@@ -4,3 +4,7 @@ channels:
 dependencies:
   - r-base=4.4.1
   - r-essentials
+dependencies:
+  - notebook
+  - jupyter
+  - traitlets>=5.0.0
