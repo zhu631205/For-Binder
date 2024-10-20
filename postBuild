@@ -6,3 +6,25 @@ R -e "install.packages(c('shiny', 'ggplot2', 'dplyr', 'tidyverse'), repos='http:
 Rscript -e 'print(installed.packages())'
 conda update -n base -c defaults conda -y
 apt-get update && apt-get install -y apt-utils
+dependencies:
+  - python=3.11
+  - ipykernel
+  - jupyter
+  - traitlets=5.9.0  # or whichever version is compatible with your setup
+echo "Starting postBuild..."
+# Any commands you are running in postBuild
+echo "Finished postBuild."
+#!/bin/bash
+
+echo "Starting Binder build..."
+
+# Install system dependencies
+apt-get update && apt-get install -y apt-utils
+
+# Install R dependencies (if using R)
+Rscript -e "install.packages(c('ggplot2', 'Seurat'))"
+
+# Install Python dependencies (if using Python)
+pip install -r requirements.txt
+
+echo "Binder build finished."
