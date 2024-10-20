@@ -1,10 +1,21 @@
-name: r
+name: mybinder
 channels:
+  - defaults
   - conda-forge
+  - bioconda  # if using bio-related packages
 dependencies:
+  # R dependencies
   - r-base=4.4.1
   - r-essentials
-dependencies:
+  - r-ggplot2
+  - r-seurat
+  
+  # Python dependencies
   - notebook
   - jupyter
   - traitlets>=5.0.0
+  - ipykernel
+
+  # If you need pip-installed dependencies
+  - pip:
+      - some-python-package
