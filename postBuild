@@ -1,8 +1,6 @@
 #!/bin/bash
 
 echo "Starting Binder build..."
-echo "export R_MAX_NUM_DLLS=500"
->> ~/.Renviron
 
 
 # Update conda to the latest version
