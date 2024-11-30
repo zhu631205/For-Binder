@@ -2,6 +2,12 @@
 
 echo "Starting Binder build..."
 
+# Set maximum DLLs for R
+echo "R_MAX_NUM_DLLS=500" >> ~/.Renviron
+
+# Ensure all packages are properly installed
+Rscript -e "install.packages('BiocManager'); BiocManager::install('ArchR')"
+
 
 # Update conda to the latest version
 conda update -n base -c conda-forge conda -y
