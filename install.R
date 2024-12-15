@@ -1,15 +1,23 @@
 install.packages('Seurat', dependencies=TRUE)
 
-# Install BiocManager to manage Bioconductor packages
-install.packages("BiocManager")
+# install.R
 
-# Install CRAN packages
-install.packages("ggplot2")
-install.packages("dplyr")
+# Install devtools if not already installed
+if (!requireNamespace("devtools", quietly = TRUE)) {
+  install.packages("devtools")
+}
 
-# install archr
-if (!requireNamespace("devtools", quietly = TRUE)) install.packages("devtools")
-if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
-devtools::install_github("GreenleafLab/ArchR", ref="master", repos = BiocManager::repositories())
+# Install BiocManager
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+}
+
+# Install ArchR dependencies
+BiocManager::install(c("grid", "data.table", "SummarizedExperiment"))
+
+# Install ArchR
+devtools::install_github("GreenleafLab/ArchR", ref = "master", dependencies = TRUE)
+
+# Verify installation
 library(ArchR)
-ArchR::installExtraPackages()
+print("ArchR has been installed successfully!")
