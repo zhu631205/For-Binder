@@ -7,8 +7,9 @@ install.packages("BiocManager")
 install.packages("ggplot2")
 install.packages("dplyr")
 
-# Install Bioconductor packages
-BiocManager::install("ArchR")
-
-# Optional: Install GitHub packages
-remotes::install_github("GreenleafLab/ArchR")
+# install archr
+if (!requireNamespace("devtools", quietly = TRUE)) install.packages("devtools")
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+devtools::install_github("GreenleafLab/ArchR", ref="master", repos = BiocManager::repositories())
+library(ArchR)
+ArchR::installExtraPackages()
